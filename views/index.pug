@@ -1,8 +1,10 @@
-html(lang="fr")
-  head
-    title Qui prend quoi ?
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-  body
-    h1 Qui prend quoi ?
+include ../partials/header.pug
+h1 Qui prend quoi ?
+h2 Creer un evenement
+form(method="post" action="/party")
+  div
+    label(for="name") Nom de l'evenement
+    input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
+    input(name="author" id="author" required placeholder="Auteur")
+    input(name="date" id="date" placeholder="Date")
+  button(type="submit") Creer
