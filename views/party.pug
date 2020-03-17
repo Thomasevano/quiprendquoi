@@ -1,24 +1,24 @@
 include ../partials/header.pug
-h1 Qui prend quoi ?
-h2= party.name
-h3 Créé par #{party.author}
 
-ul
-  each item in party.items
-    li #{item.user} ramene #{item.name}
-      form(action=`/party/${party._id}/items/${item._id}?_method=DELETE` method="post")
-        button(type="submit") supprimer
+div(class="party_details")
 
-h2 Ajouter un item
+  h1 Qui prend quoi ?
+  h2 #{party.name} le #{party.date} créé par #{party.author}
 
-form(method="post" action=`/party/${party._id}/items`)
-  div
-    label(for="name") Nom de l'item
-    input(name="name" id="name" required placeholder="chips")
-    label(for="user") Invité
-    input(name="user" id="user" required placeholder="Jean")
-  button(type="submit") Ajouter
+  ul
+    each item in party.items
+      li #{item.user} ramene #{item.name}
+        form(action=`/party/${party._id}/items/${item._id}?_method=DELETE` method="post")
+          button(type="submit") supprimer
 
+  h2 Ajouter un item
+  form(method="post" action=`/party/${party._id}/items`)
+    div
+      label(for="name") Nom de l'item
+      input(name="name" id="name" required placeholder="chips")
+      label(for="user") Invité
+      input(name="user" id="user" required placeholder="Jean")
+    button(type="submit") Ajouter
 
-label(for="url") Partager l'evenement
-input(id="url" value=`${url}`)
+  input(id="url" class="share_button" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
+        data-share-title=`${party.name}` data-share-text=`${party.author} vous invites a rejoindre l'événement ${party.name}`)

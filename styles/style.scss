@@ -1,0 +1,35 @@
+@import 'vendors/reset.scss';
+@import 'config/medias.scss';
+@import 'blocs/newParty.scss';
+
+$primary-color: #BAE5E5;
+$secondary-color: #98D6EA;
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2,h3 {
+  font-size: 25px;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  background-color: $primary-color;
+
+  .share_button {
+    display: none;
+  }
+  .party_details {
+    padding: 40px;
+    background-color: $secondary-color;
+    box-shadow: 0 6px 20px $secondary-color;
+    line-height: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}

@@ -3,11 +3,11 @@ const app = express();
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const axios = require('axios');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
   res.render('index', { title: 'Qui prend quoi ?' });
