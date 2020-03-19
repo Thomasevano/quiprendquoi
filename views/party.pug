@@ -22,3 +22,6 @@ div(class="party_details")
 
   input(id="url" class="share_button" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
         data-share-title=`${party.name}` data-share-text=`${party.author} vous invites a rejoindre l'événement ${party.name}`)
+
+script.
+  party = !{JSON.stringify(party)}
