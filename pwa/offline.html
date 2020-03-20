@@ -23,8 +23,10 @@
           const $link = document.createElement('a');
           $link.href = key.url;
           $link.innerHTML = name;
-          $ul.appendChild($li)
+          $ul.className = "list-group";
+          $li.className = "list-group-item";
           $li.appendChild($link)
+          $ul.appendChild($li)
         }
         console.log(key, name)
       })

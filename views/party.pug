@@ -1,26 +1,27 @@
 include ../partials/header.pug
 
-div(class="party_details")
+div.container-sm.party_details
 
   h1 Qui prend quoi ?
   h2 #{party.name} le #{party.date} créé par #{party.author}
 
-  ul
+  ul.list-group
     each item in party.items
-      li #{item.user} ramene #{item.name}
+      li.list-group-item #{item.user} ramene #{item.name}
         form(action=`/party/${party._id}/items/${item._id}?_method=DELETE` method="post")
-          button(type="submit") supprimer
+          button(type="submit" class="btn btn-danger") supprimer
 
   h2 Ajouter un item
   form(method="post" action=`/party/${party._id}/items`)
-    div
+    div.form-group
       label(for="name") Nom de l'item
-      input(name="name" id="name" required placeholder="chips")
+      input(name="name" id="name" required placeholder="chips").form-control
+    div.form-group
       label(for="user") Invité
-      input(name="user" id="user" required placeholder="Jean")
-    button(type="submit" class="btn btn-primary") Ajouter
+      input(name="user" id="user" required placeholder="Jean").form-control
+    button(type="submit" class="btn btn-primary mb-3") Ajouter
 
-  input(id="url" class="share_button" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
+  input(id="url" class="share_button btn btn-secondary" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
         data-share-title=`${party.name}` data-share-text=`${party.author} vous invites a rejoindre l'événement ${party.name}`)
 
 script.

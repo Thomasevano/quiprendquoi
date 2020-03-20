@@ -3,6 +3,7 @@ if (navigator.share) {
   document.querySelectorAll('[data-share-url]').forEach($shareEl => {
     const $button = document.createElement('button');
     $button.innerHTML = "Partager l'événement";
+    $button.className = "btn btn-secondary"
     $shareEl.parentNode.append($button);
     $button.addEventListener('click', share.bind(this, $shareEl));    
   });
