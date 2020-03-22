@@ -6,6 +6,13 @@
 
 `npm run start`
 
+Creer un fichier `.env` afin de stocker vos varibales d'environnement
+`
+NODE_ENV=development
+PORT= 3000
+API_URL=http://bastiencalou.fr:3000
+`
+
 ## Améliorations apportées
 
 - Affichage de la liste des items sur la page événement `-Add Party event and add item and delete item` (`app.js`, `party.pug`)
@@ -30,8 +37,8 @@ Certains avantages de Turbolinks sont qu'il va se charger tout seul de s'implém
 
 Ce package s'installe avec un simple `npm install --save turbolinks`
 il suffit ensuite de l'importer dans un fichier JavaScript de votre projet :
-`var Turbolinks = require('turbolinks')`
-`Turbolinks.start()`
+`var Turbolinks = require('turbolinks')
+Turbolinks.start()`
 
 #### Mon expérience
 

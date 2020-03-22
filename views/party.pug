@@ -3,7 +3,7 @@ include ../partials/header.pug
 div.card.container-md.party_details
   div.card-body
     div.text-center
-      h1.mb-5 Qui prend quoi ?
+      h1.mb-3 Qui prend quoi ?
       h3.card-title #{party.name} le #{new Date(party.date).toLocaleDateString('fr-FR')}
       p Crée par #{party.author}
 
@@ -14,8 +14,8 @@ div.card.container-md.party_details
               button(type="submit" class="btn btn-danger")
                 i.fa.fa-trash
 
-    h3.text-center.mt-5.mb-3 Amener Quelque chose
-    form(method="post" action=`/party/${party._id}/items`).mb-5
+    h3.text-center.mt-3.mb-3 Amener Quelque chose
+    form(method="post" action=`/party/${party._id}/items`).mb-3
       div.form-group
         abel(for="name") Objet
         input(type="text" name="name" id="name" required placeholder="Champagne").form-control
