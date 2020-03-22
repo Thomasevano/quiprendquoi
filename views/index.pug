@@ -1,15 +1,20 @@
 include ../partials/header.pug
-div.container-sm
-  h1 Qui prend quoi ?
-  h2 Creer un evenement
-  form(method="post" action="/party")
-    div.form-group
-      label(for="name") Nom de l'evenement
-      input(name="name" id="name" required minlength="3" placeholder="Nouvel an" class="form-control")
-    div.form-group
-      label(for="name") Organisateur
-      input(name="author" id="author" required placeholder="Auteur" class="form-control")
-    div.form-group
-      label(for="name") Date de l'evenement
-      input(type="date" name="date" id="date" placeholder="Date" class="form-control")
-    button(type="submit" class="btn btn-primary") Creer
+
+if stateMessage
+  p.alert.alert-danger= stateMessage
+
+div.card.container-md.party_details
+  div.card-body
+    h1.mb-5.text-center Qui prend quoi ?
+    h2 Créer un evenement
+    form(method="post" action="/party")
+      div.form-group
+        label(for="name") Nom
+        input(name="name" id="name" required minlength="3" placeholder="Nouvel an" class="form-control")
+      div.form-group
+        label(for="author") Organisateur
+        input(name="author" id="author" required placeholder="Paul" class="form-control")
+      div.form-group
+        label(for="name") Date
+        input(type="date" name="date" id="date" placeholder="Date" class="form-control")
+      button(type="submit" class="btn btn-primary") Créer

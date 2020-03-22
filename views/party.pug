@@ -1,28 +1,34 @@
 include ../partials/header.pug
 
-div.container-sm.party_details
+div.card.container-md.party_details
+  div.card-body
+    div.text-center
+      h1.mb-5 Qui prend quoi ?
+      h3.card-title #{party.name} le #{new Date(party.date).toLocaleDateString('fr-FR')}
+      p Crée par #{party.author}
 
-  h1 Qui prend quoi ?
-  h2 #{party.name} le #{party.date} créé par #{party.author}
+      ul.list-group
+        each item in party.items
+          li.list-group-item #{item.user} ramene #{item.name}
+            form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`).ml-3
+              button(type="submit" class="btn btn-danger")
+                i.fa.fa-trash
 
-  ul.list-group
-    each item in party.items
-      li.list-group-item #{item.user} ramene #{item.name}
-        form(action=`/party/${party._id}/items/${item._id}?_method=DELETE` method="post")
-          button(type="submit" class="btn btn-danger") supprimer
+    h3.text-center.mt-5.mb-3 Amener Quelque chose
+    form(method="post" action=`/party/${party._id}/items`).mb-5
+      div.form-group
+        abel(for="name") Objet
+        input(type="text" name="name" id="name" required placeholder="Champagne").form-control
+      div.form-group
+        abel(for="user") Nom de l'invité
+        input(name="user" id="user" required placeholder="Jean").form-control
+      button(type="submit" class="btn btn-primary mb-3") Ajouter
 
-  h2 Ajouter un item
-  form(method="post" action=`/party/${party._id}/items`)
-    div.form-group
-      label(for="name") Nom de l'item
-      input(name="name" id="name" required placeholder="chips").form-control
-    div.form-group
-      label(for="user") Invité
-      input(name="user" id="user" required placeholder="Jean").form-control
-    button(type="submit" class="btn btn-primary mb-3") Ajouter
+    form(method="post" action=`/party/${party._id}?_method=DELETE`).mb-3
+      button(type="submit").btn.btn-danger Supprimer l'évenement
 
-  input(id="url" class="share_button btn btn-secondary" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
-        data-share-title=`${party.name}` data-share-text=`${party.author} vous invites a rejoindre l'événement ${party.name}`)
+    input(id="url" class="share_button" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` 
+          data-share-title=`${party.name}` data-share-text=`${party.author} vous invites a rejoindre l'événement ${party.name}`)
 
 script.
   party = !{JSON.stringify(party)}

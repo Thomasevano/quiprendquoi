@@ -35,6 +35,13 @@ app.get('/party/:id', function(req, res) {
     .catch((err) => console.log(err))
 });
 
+app.delete("/party/:id", function(req, res) {
+  axios
+    .delete(`${process.env.API_URL}/party/${req.params.id}`)
+    .then(() => res.render('index', { stateMessage: "L'événement a bien été supprimé." }))
+    .catch(err => res.send(err))
+});
+
 app.post('/party/:id/items', function(req, res) {
   axios
     .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
@@ -42,12 +49,12 @@ app.post('/party/:id/items', function(req, res) {
     .catch((err) => res.send(err))
 });
 
-app.delete('/party/:id/items/:idItem', function(req, res) {
+app.delete('/party/:id/items/:item_id', function(req, res) {
   axios
-    .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.idItem}`)
+    .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.item_id}`)
     .then(() => res.redirect(`/party/${req.params.id}`))
     .catch((err) => res.send(err))
-})
+});
 
 app.listen(process.env.PORT, () => console.log(`Front app listening on port ${process.env.PORT}!`));
 app.set('view engine', 'pug');
