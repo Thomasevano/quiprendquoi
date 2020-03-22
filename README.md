@@ -11,6 +11,7 @@ Creer un fichier `.env` afin de stocker vos varibales d'environnement
 NODE_ENV=development
 PORT= 3000
 API_URL=http://bastiencalou.fr:3000
+FRONT_URL=YOURURL WHERE YOU WANT TO DEPL0Y
 ```
 
 ## Améliorations apportées
@@ -20,7 +21,7 @@ API_URL=http://bastiencalou.fr:3000
 - Ajout d'une alerte comfirmant la suppression d'un événement ` - Add Fetch` (`parties.js`, `party.pug`)
 - Rafraîchissement automatique des items avec fetch ` - Add Fetch` `- Better Fetch` (`parties.js`)
 - Ajout d'un design grace a Bootstrap notamment `Add Fetch`
-- Mise en ligne du site (malheureusement ne marche pas encore car j'obtient une erreur au moment du npm start lors du déploiement sur heroku)
+- Mise en ligne du site (marche partiellement les element s'affichent mais non stylisés et JS ne marche pas encore, surement un probleme au niveau de la compilation, j'obtiens `[Error: ENOENT: no such file or directory, open 'public/script.js'] ` apres compilation quand il tente de charger les fichiers JS)
 
 ## Article personnel
 
