@@ -4,7 +4,7 @@
   "description": "QuiprendQuoi organize events and get know who take what",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run sass\" \"npm run jquery\" \"npm run watchify\" \"npm run sw\" \"npm run bootstrap-js\" \"nodemon app.js\" ",
+    "start": "concurrently --kill-others \"npm install\" \"npm run sass\" \"npm run jquery\" \"npm run watchify\" \"npm run sw\" \"npm run bootstrap-js\" \"nodemon app.js\" ",
     "sass": "node-sass styles/style.scss public/style.css -w --output-style compressed",
     "sw": "watchify sw.js -o public/sw.js -t [ babelify --presets [ babel-preset-minify ] ]",
     "watchify": "watchify scripts/*.js -o public/script.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]",
