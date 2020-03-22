@@ -9,9 +9,7 @@
     "sw": "watchify sw.js -o public/sw.js -t [ babelify --presets [ babel-preset-minify ] ]",
     "watchify": "watchify scripts/*.js -o public/script.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]",
     "bootstrap-js": "watchify node_modules/bootstrap/dist/js/bootstrap.min.js -o public/bootstrap.min.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]",
-    "jquery": "watchify node_modules/jquery/dist/jquery.min.js -o public/jquery.min.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]",
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;"
+    "jquery": "watchify node_modules/jquery/dist/jquery.min.js -o public/jquery.min.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]"
   },
   "keywords": [],
   "author": "",
