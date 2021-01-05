@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-preset-minify": "^0.5.1",
